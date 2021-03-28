@@ -1,0 +1,694 @@
+/* GLOBAL */
+html {
+    /* scroll-behavior: smooth ( Giúp việc trượt xuống các mục mượt mà hơn) */
+    scroll-behavior: smooth;
+}
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+/* header__top */
+.header__top {
+    background-color: #F65868;
+    font-size: 14px;
+}
+.header__top a{
+    color:#fefefe;
+    text-decoration: none;
+    transition: all 0.6s;
+}
+.header__right a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: black ;
+    border: 1px solid black;
+    border-radius: 20%;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 5px;
+
+}
+.header__left a:hover{
+    color: black;
+}
+.header__right a:hover{
+    background-color: #ff4f81;
+    border-color: white;
+}
+/* mainNavbar */
+.mainNavbar a {
+    
+    color: black;
+    font-weight: 400;
+    
+
+}
+.mainNavbar .navbar-brand p:first-child {
+    font-size: 2rem;
+
+}
+.mainNavbar .navbar-brand p:first-child i{
+    transform: skewX(-10deg);
+}
+.mainNavbar .navbar-brand p:last-child {
+    font-size: 11px;
+    color: brown;
+    letter-spacing: 3px;
+}
+#navbarInstruction .navbar-nav .nav-item {
+    margin: 0 0.9rem;
+}
+#navbarInstruction .navbar-nav .nav-item::after {
+    content: '';
+    width: 0%;
+    height: 2.5px;
+    background-color: brown;
+    /* Thẻ after và before đều có display là inline nên khi muốn set kích thước 
+    cho nó thì phải đổi kiểu block */
+    display: block;
+    transition: all 0.5s;
+}
+#navbarInstruction .navbar-nav .nav-item:hover::after{
+    width: 100%;
+
+}
+#navbarInstruction .navbar-nav .nav-item.active::after{
+    width: 100%;
+}
+#navbarInstruction .navbar-nav .nav-item.active .nav-link{
+    color: brown;
+}
+
+#navbarInstruction .navbar-nav .nav-item:hover .nav-link{
+    color: brown;
+}
+#navbarInstruction .navbar-nav .nav-link {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+.nav-item.dropdown .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.nav-item.dropdown .dropdown-menu .dropdown-item {
+    color: white;
+    transition: all 0.5s;
+}
+.nav-item.dropdown .dropdown-menu .dropdown-item:hover,.nav-item.dropdown .dropdown-menu .dropdown-item:focus {
+    background-color: transparent;
+    color: #ff4f81;
+}
+/* Class dùng chung cho các phần khác nhau trong website gồm section và heading : */
+
+.section {
+    /* Thiết kế thì thường để khoảng cách trên dưới giữa các phần là từ 70 đến 100px */
+    padding: 6rem 0;
+}
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.heading h2 {
+    font-size: 40px;
+    color: #ff4f81;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.heading p{
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    color: black;
+    font-size: 17px;
+}
+.heading p::after {
+    content: '';
+    width: 70px;
+    height: 2px;
+    background-color: black;
+    display: block;
+    /* Căn giữa nội dung 1 thẻ ( width < 100% ta dùng margin : auto ) */
+    margin: 20px auto;
+}
+
+/* CAROUSEL */
+#carouselInstruction .carousel-caption{
+    /* Kỹ thuật căn giữa 1 phần chỉ áp dụng cho thẻ bị gắn position: absolute; */
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.carousel-item h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.carousel-caption p{
+    letter-spacing: 2.5px;
+    /* Kỹ thuật căn giữa áp dụng cho 1 thẻ không bị gắn postion || Set width và margin 0 auto */
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    font-weight: 300;
+    margin-top: 1rem;
+    line-height: 1.8em;
+}
+.carousel-caption button {
+    padding: 12px 25px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    letter-spacing: 2px;
+    font-size: 14px;
+    transition: all 0.5s;
+    background-color: transparent;
+    border-radius:20px;
+}
+.carousel-caption button:hover {
+    background-color: #ff4f81;
+    border-color: #ff4f81;
+}
+.carousel-caption button:focus {
+    outline: none;
+}
+/* Hiển thị (Click lại) nút mũi tên khi bị thẻ P đè mất  */
+.carousel-control-next, .carousel-control-prev {
+    /* Sửa lại độ ưu tiên cao hơn của thẻ P đang có */
+    z-index: 11;
+}
+
+/* WELCOME */
+.welcome__content>p{
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    /* rem: Dựa vào font size gốc của thẻ html ( mặc định là 16px ) 
+    em: Dựa vào font size của phần tử gần nhất với nó ( Ở đây là 15px) */
+    line-height: 1.8em;
+    color: #999;
+    letter-spacing: 1px;
+    padding: 1rem 0 5rem;
+}
+/* Sử dụng Grid System BS4 : Bắt buộc phải khai báo class row trong .container */
+/* welcome__courses */
+.welcome__col {
+    padding: 2rem;
+}
+.welcome__item i {
+    font-size: 2rem;
+}
+.welcome__item h3 {
+    color: #ff4f81;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+}
+.welcome__item h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem 0 0.2rem;
+}
+.welcome__item p {
+    color: rgb(48, 48, 48);
+    font-size: 1rem;
+    line-height: 1.8em;
+    margin: 10px 0 0;
+    letter-spacing: 1px;
+}
+
+/* OUR STATS */
+.ourStats {
+    background-image: url(/IMG/g9.jpg);
+    /* Parallax Img Effects: Sử dụng background-attachment: fixed sẽ giúp nền được cố định với khung hình dù ta có kéo thanh scroll  */
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.heading--white p{
+    color: white;
+}
+.ourStats__content {
+    text-align: center;
+    color: white;
+}
+.ourStats__item i{
+    font-size: 2.5rem;
+}
+.ourStats__item h3 {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin: 30px 0 20px;
+    color: #ff4f81;
+}
+.ourStats__item p {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* OFFER */
+.offer__col {
+    padding: 1rem;
+}
+.offer__item {
+    padding: 30px 40px;
+    box-shadow: 0px 1px 8px 0px rgb(158 158 158 / 75%);
+    text-align: center;
+    background-color: white;
+    transition: all 0.5s;
+}
+.offer__item:hover {
+    background-color: #12ccc3;
+}
+.offer__item i {
+    color: #ff4f81;
+    font-size: 40px;
+}
+.offer__item h3 {
+    font-size: 20px;
+    color: black;
+    margin: 25px 0 20px;
+}
+.offer__item p {
+    color: #6b6b6b;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* TESTIMONIALS ( Feedback ) */
+.feedback {
+    background: url(/IMG/banner3.jpg) no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.feedback__content {
+    box-shadow: 0px 1px 7px #8e8e8e;
+    background-color: rgba(0, 0, 0, 0.47);
+    padding: 2rem;
+}
+.feedback__content .item {
+    color: white;
+    padding: 1rem;
+}
+.feedback__top {
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.47);
+    /* Gắn vị trí cho thẻ cha  */
+    position: relative;
+}
+.feedback__top::after {
+    content: '';
+    /* CSS Triangle : Sử dụng border ( Khi không khai báo width,height,nội dung bên trong thì kích thước của thẻ sẽ phụ thuộc vào border  */
+    border-top: 9px solid rgba(0, 0, 0, 0.47);
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    position: absolute;
+    top: 100%; 
+    left: 28%;
+}
+.feedback__bottom {
+    display: flex;
+    justify-content: center;
+    /* Khi set width < 100% thì sẽ dư ra khoảng cách ở 2 bên nên kết hợp cùng margin auto để thẻ được căn giữa */
+    width: 55%;
+    margin: 2rem auto 0;
+}
+.feedback__content .feedback__bottom img {
+    width: 28%;
+    /* display: inline-block; */
+}
+.feedback__name {
+    margin-left: 5px;
+}
+.feedback__name p:first-child {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.feedback__name p {
+    margin: 0;
+    color: #ff4f81;
+}
+.feedback__content .owl-theme .owl-dots .owl-dot span {
+    background-color: #ff4f81;
+    opacity: 0.5;
+}
+.feedback__content .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    opacity: 1;
+}
+.owl-theme .owl-dots .owl-dot:focus {
+    outline: none;
+}
+/* NEWS */
+.news__content a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+.news__content a:hover {
+    color: #ff4f81;
+}
+.news__content h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ff4f81;
+    margin: 1rem 0;
+}
+.news__content p {
+    color: #999;
+    margin-top: 1rem;
+    line-height: 1.8rem;
+    font-size: 1rem;
+}
+.news__content .row:first-child {
+    margin-bottom: 5rem;
+}
+
+/* MODAL phần NEWS */
+.modal-body {
+    padding: 1rem 2rem;
+}
+#myModal h5 {
+    padding: 0 1rem;
+    font-size: 29px;
+    color: #ff4f81;
+    font-weight: bold;
+}
+#myModal img {
+    border: 2px solid #dedede;
+    margin-top: 1rem;
+}
+#myModal p {
+    font-size: 14px;
+    color: rgb(68, 68, 68);
+    line-height: 1.8em;
+    padding: 20px 0;
+}
+/* FOOTER */
+footer {
+    background-color: #141415;
+}
+/* footer__top */
+/* footer__content" */
+
+/* About Us */
+.footer__top h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4f81;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+.footer__top p {
+    color: #8b8b96;
+    font-size: 15px;
+    line-height: 2em;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Latest News */
+.footer__link {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.footer__link i {
+    color: #ff4f81;
+    margin-right: 1rem;
+}
+.footer__link a, .footer__contact a {
+    color: #8b8b96;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    transition: all 0.8s;
+}
+.footer__link a:hover {
+    color: white;
+}
+
+/* Contact Info */
+.footer__contact a:hover {
+    color: white;
+}
+.footer__contact {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.footer__contact i {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #4b4b50;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 1rem;
+}
+
+/* footer__form */
+.footer__form {
+    margin-top: 3rem;
+}
+.footer__form label {
+    color: #ff4f81;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.footer__form input {
+    padding: 14px;
+    border-radius: 0;
+    border: none;
+    letter-spacing: 1px;
+    color: #888888;
+    height: auto;
+}
+.footer__form button {
+    background-color: #ff4f81;
+    padding: 12px 35px;
+    letter-spacing: 1px;
+    border-radius: 0;
+    color: white;
+    outline: none;
+    transition: all 0.5s;
+}
+
+/* footer__bottom */
+.footer__bottom {
+    background-color: #0f0f10;
+    text-align: center;
+    padding: 1.5rem 0;
+    letter-spacing: 3px;
+    color: white;
+}
+.footer__bottom h2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+.footer__bottom a{
+    text-decoration: none;
+    color: #ff4f81;
+    transition: all 0.5s;
+    font-weight: bold;
+}
+/* BACK TO TOP */
+.backToTop{
+    /* position: fixed; ( ĐI theo thẻ body khi scroll) */
+    right: 50px;
+    bottom: 50px;
+    position: fixed;
+    /* opacity: 0; ( Thẻ vẫn hiện trên web,chỉ trong suốt) */
+    /* visibility: hidden; ( Ẩn về mặt nội dung,k Tab đc) */
+    opacity: 0;
+    visibility: hidden;
+}
+/* Giúp button hiện lại khi scroll xuống */
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+}
+.backToTop i {
+    color: #0BBBCC;
+    border: 2px solid #0BBBCC;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+/* Repsonsive with bootstrap 
+Có 2 cách sử dụng media query : min-width hoặc max-width
+Khi làm giao diện Desktop trước,ta phải thu màn hình về nên ta sẽ dùng max-width
+Khi làm giao diện Mobile trước,ta phải phóng màn hình lên nên ta sẽ dùng min-width
+Class của Bootstrap được xây dựng theo Mobile First (min-width) */
+
+/* Cách cơ bản để xem nhanh : Insecpt ( Ctrl + shift + I ) và nắm kéo màn hình để xem kích thước
+Sau khi đã xây dựng sơ lược thì cần phải kiểm tra lại bằng device tool để lựa chọn cụ thể kích thước
+của các loại màn hình hiện có nhằm tăng độ chính xác ( Iphone thường thay đổi kích thước screen )
+Khi nắm kéo thì nó sẽ không cho kích thước chính xác của bất cứ loại màn hình nào nên cần phải test lại bằng device tool 
+=> Để đảm bảo nhất thì nên test lại trang web trên 1 thiết bị thực tế hoặc mua tài khoản trên trang
+web giả lập : https://www.browserstack.com/   */
+
+/* HEADER */
+/* Lỗi ở ip5: 320px */
+/* Lưu ý khi dùng max width phải để kích thước từ lớn đến bé để tránh bị đè code
+min width thì để kích thước là từ bé đến lớn: 300px -> 600px... */
+@media screen and (max-width: 568px ){
+    .header__top .header__left a {
+        display: block;
+        margin-left: 0!important;
+        margin-bottom: 5px;
+    }
+}
+@media screen and (max-width: 320px ){
+    .header__top .header__right {
+        text-align: center;
+        width: 35%;
+    }
+    .header__top .header__right a {
+        margin-bottom: 5px;
+    }
+}
+/* Main Navbar Menu */
+@media screen and (min-width:769px) and (max-width:992px){
+    #navbarInstruction .navbar-nav .nav-item {
+        margin: 0px;
+        padding: 0px 5px;
+    }
+    #navbarInstruction .navbar-nav .nav-link {
+        font-size: 1.4vw;
+        padding: 5px;
+    }
+}
+@media screen and (max-width:992px){
+    .mainNavbar .navbar-brand p:first-child {
+        /* 3% so với width của trình duyệt */
+        font-size: 3vw;
+    }
+    .mainNavbar .navbar-brand p:last-child {
+        /* 1.5% so với width của trình duyệt */
+        font-size: 1.2vw;
+        letter-spacing: 2px;
+    }
+}
+@media screen and (max-width:768px) {
+    .mainNavbar button {
+        background-color: black;
+        border-radius: 0px;
+        color: #ff4f81;
+    }
+    .navbar-nav {
+        background-color: #eee;
+        text-align: center;
+    }
+    #navbarInstruction .nav-item .dropdown-menu {
+        text-align: center;
+        background-color:#e0e1e2;
+        border: none;
+    }
+    #navbarInstruction .nav-item .dropdown-menu a {
+        color: black;
+        transition: all 0.5s;
+    }
+    #navbarInstruction .nav-item .dropdown-menu a:hover {
+        color: brown;
+    }
+
+
+}
+
+
+
+/* CAROUSEL */
+@media screen and (max-width:1200px){
+    #carouselInstruction .carousel-caption {
+        top: 45%;
+    }
+    #carouselInstruction .carousel-caption h1 {
+        font-size: 4vw;
+    }
+    #carouselInstruction .carousel-caption p {
+        width: 70vw;
+        font-size: 1.6vw;
+        margin: 1em auto;
+        letter-spacing: 1px;
+        
+    }
+    #carouselInstruction .carousel-caption button {
+        font-size: 1.5vw;
+        padding: 0.8em 1em;
+    }
+}
+@media screen and (max-width:576px){
+    #carouselInstruction .carousel-caption {
+        top: 50%;
+    }
+    #carouselInstruction .carousel-caption p {
+        width: 60vw;
+        margin-bottom: 1em;
+    }
+    .carousel-indicators {
+        display: none;
+    }
+
+}
+/* FEEDBACK */
+@media screen and (min-width:320px) and (max-width:1200px){
+    .feedback__top {
+        padding: 0.5rem 1rem;
+    }
+    .feedback__bottom {
+        width: 85%;
+    }
+}
+/* NEWS */
+@media screen and (max-width:576px){
+    .news__content .row:first-child {
+        margin-bottom: 2rem;
+    }
+}
+/* FOOTER */
+@media screen and (max-width:577px){
+
+    .footer__form button,.footer__form input{
+        padding: 10px;
+        border: none;
+        font-size: 14px;
+    }
+}
+/* BACK TO TOP  */
+@media screen and (max-width:776px){
+    .backToTop{
+        right: 10px;
+        bottom: 10px;
+    }
+    .backToTop i {
+        color: #0BBBCC;
+        border: 2px solid #0BBBCC;
+        width: 30px;
+        height: 30px;
+        font-size: 1.3rem;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+    }
+}
+
+
+
+
